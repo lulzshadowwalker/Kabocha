@@ -29,6 +29,7 @@ func input() {
 func update() {
 	running = !rl.WindowShouldClose()
   kab.update()
+  chick.update()
 }
 
 func render() {

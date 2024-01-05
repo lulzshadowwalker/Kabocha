@@ -11,7 +11,7 @@ type Kabocha struct {
 func loadKabocha() {
   kab = new(Kabocha)
   kab.src = rl.NewRectangle(0, 0, 48, 48) 
-  kab.dest = rl.NewRectangle(200, 200, 60, 60) 
+  kab.dest = rl.NewRectangle(0, 0, 148, 148) 
   kab.speed = 3.8
   kab.sprite.path = "./assets/sprites/kabocha.png"
   kab.pos = rl.Vector2{}
@@ -24,18 +24,18 @@ func (k *Kabocha) move() {
   var ySprite int
   if k.dir != 0 {
     if k.dir&movingUp != 0 { 
-      k.dest.Y -= k.speed
+      k.pos.Y += k.speed
       ySprite = 1
     } else if k.dir&movingDown != 0 {
-      k.dest.Y += k.speed
+      k.pos.Y -= k.speed
       ySprite = 0 
     }
 
     if k.dir&movingRight != 0 { 
-      k.dest.X += k.speed
+      k.pos.X -= k.speed
       ySprite = 3
     } else if k.dir&movingLeft != 0 {
-      k.dest.X -= k.speed
+      k.pos.X += k.speed
       ySprite = 2
     }
 

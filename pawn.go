@@ -1,6 +1,8 @@
-package main 
+package main
 
 import (
+	"fmt"
+
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -14,10 +16,10 @@ const (
 
 type MovementDirection int
 
-// TODO: properly update Pawn.pos
 type Pawn struct {
   sprite KSprite
   pos rl.Vector2
+  rot float32
   src rl.Rectangle
   dest rl.Rectangle
   dir MovementDirection
@@ -39,7 +41,10 @@ func (p *Pawn) unload() {
 }
 
 func (p *Pawn) render() {
-  rl.DrawTexturePro(p.sprite.texture, p.src, p.dest, p.pos, 0, rl.White)
+  if p.rot != 0 {
+    fmt.Println(p.rot)
+  }
+  rl.DrawTexturePro(p.sprite.texture, p.src, p.dest, p.pos, p.rot, rl.White)
 }
 
 func (k *Kabocha) update() {
