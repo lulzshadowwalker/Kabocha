@@ -48,3 +48,5 @@ Temporary Items
 # Go workspace file
 go.work
 assets/images/sample.jpg
+
+bin/
